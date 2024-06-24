@@ -1,32 +1,26 @@
-let form = document.getElementById("myForm");
-form.addEventListener('submit', (event) => {
-    event.preventDefault(); // Prevent form submission
+function prom() {
+    let form = document.getElementById("myForm");
+    form.addEventListener('submit', (event) => {
+        event.preventDefault(); // Prevent form submission
 
-    let age = parseInt(document.getElementById("age").value);
-    let name = document.getElementById("name").value;
+        let age = parseInt(document.getElementById("age").value);
+        let name = document.getElementById("name").value;
 
-    let myPromise = new Promise((resolve, reject) => {
-        if (age > 18) {
-            setTimeout(() => {
-                resolve(`Welcome, ${name}. You can vote.`);
-            }, 4000);
-        } else {
-            reject(`Oh sorry, ${name}. You aren't old enough.`);
-        }
+        return new Promise((resolve, reject) => {
+            if (age > 18) {
+                setTimeout(() => {
+                    alert(`Welcome, ${name}. You can vote.`);
+                    resolve();
+                }, 4000);
+            } else {
+                alert(`Oh sorry, ${name}. You aren't old enough.`);
+                reject();
+            }
+        });
     });
+}
 
-    myPromise.then(
-        function (value) {
-			
-				
-            alert(value);
-				
-			
-        },
-       
-    );
-	myPromise.catch(function (error) {
-		alert(error);
-	})
-
-});
+async function pro() {
+    await prom();
+}
+pro();
