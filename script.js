@@ -13,7 +13,7 @@ function prom() {
                     resolve();
                 }, 4000);
             } else {
-                alert(`Oh sorry, Doe. You aren\'t old enough.`);
+                alert(`Oh sorry, ${name}. You aren\'t old enough.`);
                 reject();
             }
         });
