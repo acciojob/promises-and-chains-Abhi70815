@@ -6,7 +6,10 @@ form.addEventListener('submit', () => {
 
     let myPromise = new Promise(function (resolve, reject) {
         if (age > 18) {
+			setTimeout(()=>{
+
             resolve(`Welcome, ${name}. You can vote.`);
+			},4000);
         } else {
             reject(`Oh sorry, ${name}. You aren't old enough.`);
         }
@@ -14,12 +17,15 @@ form.addEventListener('submit', () => {
 
     myPromise.then(
         function (value) {
+			
+				
             alert(value);
+				
+			
         },
         function (error) {
             alert(error);
         }
     );
 
-    // alert(`Age: ${age}, Name: ${name}`);
 });
