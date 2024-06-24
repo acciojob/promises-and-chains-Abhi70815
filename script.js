@@ -23,9 +23,10 @@ form.addEventListener('submit', (event) => {
 				
 			
         },
-        function (error) {
-            alert(error);
-        }
+       
     );
+	myPromise.catch(function (error) {
+		alert(error);
+	})
 
 });
