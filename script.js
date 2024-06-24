@@ -4,7 +4,7 @@ form.addEventListener('submit', () => {
     let name = document.getElementById("name").value;
     age = parseInt(age);
 
-    let myPromise = new Promise(function (resolve, reject) {
+    let myPromise = new Promise((resolve, reject)=> {
         if (age > 18) {
 			setTimeout(()=>{
 
@@ -15,17 +15,17 @@ form.addEventListener('submit', () => {
         }
     });
 
-    myPromise.then(
-        function (value) {
+//     myPromise.then(
+//         function (value) {
 			
 				
-            alert(value);
+//             alert(value);
 				
 			
-        },
-        function (error) {
-            alert(error);
-        }
-    );
+//         },
+//         function (error) {
+//             alert(error);
+//         }
+//     );
 
-});
+// });
