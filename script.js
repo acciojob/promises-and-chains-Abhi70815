@@ -1,7 +1,25 @@
-//your JS code here. If required.
-// let input=document.querySelectorAll("input");
-// alert("hi"+input[0].value);
-let age=document.getElementById("age");
-let name=document.getElementById("name");
+let form = document.getElementById("myForm");
+form.addEventListener('submit', () => {
+    let age = document.getElementById("age").value;
+    let name = document.getElementById("name").value;
+    age = parseInt(age);
 
-alert(age.value,name.value); 
+    let myPromise = new Promise(function (resolve, reject) {
+        if (age > 18) {
+            resolve(`Welcome, ${name}. You can vote.`);
+        } else {
+            reject(`Oh sorry, ${name}. You aren't old enough.`);
+        }
+    });
+
+    myPromise.then(
+        function (value) {
+            alert(value);
+        },
+        function (error) {
+            alert(error);
+        }
+    );
+
+    // alert(`Age: ${age}, Name: ${name}`);
+});
