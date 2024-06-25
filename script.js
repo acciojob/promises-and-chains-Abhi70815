@@ -5,6 +5,7 @@ function prom() {
 
         let age = parseInt(document.getElementById("age").value);
         let name = document.getElementById("name").value;
+		
 
         return new Promise((resolve, reject) => {
             if (age > 18) {
@@ -13,7 +14,7 @@ function prom() {
                     resolve();
                 }, 4000);
             } else {
-                alert(`Oh sorry, ${name}. You aren\'t old enough.`);
+                alert(`Oh sorry <${name}>. You aren't old enough.`);
                 reject();
             }
         });
