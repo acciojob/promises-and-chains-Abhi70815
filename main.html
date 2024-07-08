@@ -25,6 +25,11 @@
             const ageInput = document.getElementById('age');
             const nameInput = document.getElementById('name');
 
+            if (ageInput.value === '' || nameInput.value === '') {
+                alert('Please fill in all fields.');
+                return;
+            }
+
             const age = parseInt(ageInput.value);
 
             if (isNaN(age)) {
@@ -32,11 +37,18 @@
                 return;
             }
 
-            if (age >= 18) {
-                // Simulate asynchronous processing
-                await new Promise((resolve) => setTimeout(resolve, 4000));
+            try {
+                await new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        if (age >= 18) {
+                            resolve();
+                        } else {
+                            reject();
+                        }
+                    }, 4000);
+                });
                 alert(`Welcome, ${nameInput.value}. You can vote.`);
-            } else {
+            } catch {
                 alert(`Oh sorry, ${nameInput.value}. You aren't old enough.`);
             }
         });
