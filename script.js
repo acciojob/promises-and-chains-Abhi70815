@@ -1,29 +1,33 @@
-function prom() {
-    let form = document.getElementById("myForm");
-    form.addEventListener('submit', (event) => {
-        event.preventDefault(); // Prevent form submission
+document.getElementById("btn").addEventListener("click",resolve);
+let age=document.getElementById("age");
+let name=document.getElementById("name");
+// alert(name.value);
+function resolve(e) {
+	e.preventDefault();
+	let b=name.value;
+	// alert(b)
+	let a=age.value;
+	promise(a,b).then((data)=>{
+		alert(data);
+	}).catch((data)=>{alert(data)});
+	
+	}
+	
 
-        let age = parseInt(document.getElementById("age").value);
-        let name = document.getElementById("name").value;
-		
-
-        return new Promise((resolve, reject) => {
-            if (age >=18) {
-                setTimeout(() => {
-                    alert(`Welcome, ${name}. You can vote.`);
-                    resolve();
-                }, 4000);
-            } else {
-				setTimeout(() => {
-                alert(`Oh sorry ${name}. You aren't old enough.`);
-                reject();
-				                }, 4000);	
-            }
-        });
-    });
+const promise=function(age,name){
+    let pr=new Promise((res,rej)=>{
+		if(!age){
+            rej(`Please enter valid details`)
+        }
+        if(age>18)
+        {
+            res(`Welcome, ${name}. You can vote.`);
+        }
+			else if(age<18)
+			{
+				res(`Oh sorry ${name}. You aren't old enough.`);
+			}
+        
+    })
+    return pr;
 }
-
-async function pro() {
-    await prom();
-}
-pro();
