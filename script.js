@@ -8,7 +8,7 @@ function prom() {
 		
 
         return new Promise((resolve, reject) => {
-            if (age > 18) {
+            if (age >=18) {
                 setTimeout(() => {
                     alert(`Welcome, ${name}. You can vote.`);
                     resolve();
